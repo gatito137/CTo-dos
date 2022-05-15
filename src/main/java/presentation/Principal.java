@@ -14,6 +14,7 @@ public class Principal extends JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setTitle("To dos (version 5.2)");
         
         LoadTables();
         

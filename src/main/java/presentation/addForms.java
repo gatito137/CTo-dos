@@ -14,6 +14,7 @@ public class addForms extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setTitle("Forms assigned to the task.");
     }
 
     protected void setCode(String Code){
