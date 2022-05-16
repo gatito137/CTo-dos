@@ -242,7 +242,7 @@ public class Principal extends JFrame {
 
     private void tabFormsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabFormsMousePressed
         c.query.delete(0, c.query.length());
-        c.query.append("select p.Code, p.Status, p.Description, p.Documentation, p.DocSent, p.Code sent from DesignatedMethod as dm ");
+        c.query.append("select p.Code, p.Status, p.Description, p.Documentation, p.DocSent, p.CodeSent from DesignatedMethod as dm ");
         c.query.append("inner join Forms as f on f.id = dm.Form ");
         c.query.append("inner join Principal as p on dm.Task = p.id ");
         c.query.append("where f.Name = '");

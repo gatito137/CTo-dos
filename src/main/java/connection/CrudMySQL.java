@@ -5,6 +5,18 @@ import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
 public class CrudMySQL extends ConnectToMySQL{
+    private int Attemps = 0;
+    
+    private Boolean testAttemps(SQLException e){
+        if(Attemps < 3){
+            Attemps += 1;
+            return true;
+        }else{
+            JOptionPane.showMessageDialog(null, "Somethin has been wrong. :( " + e);
+            return false;
+        }
+    }
+    
     protected DefaultTableModel getTabla(DefaultTableModel newTable, String query){
         try{
             PreparedStatement ps = getConnection().prepareStatement(query);
@@ -25,7 +37,9 @@ public class CrudMySQL extends ConnectToMySQL{
                 newTable.addRow(Rows);
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Something has benn wrong. :( " + e);
+            if(testAttemps(e)){
+                getTabla(newTable, query);
+            }
         }
         
         return newTable;
@@ -43,7 +57,9 @@ public class CrudMySQL extends ConnectToMySQL{
                 List.addItem(rs.getString(1));
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Something has been wrong. :( " + e);
+            if(testAttemps(e)){
+                getLista(List, query);
+            }
         }
     }
     
@@ -51,7 +67,9 @@ public class CrudMySQL extends ConnectToMySQL{
         try{
             this.getConnection().prepareStatement(query).executeUpdate();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Something has been wrong. :( " + e);
+            if(testAttemps(e)){
+                ejecutarQuery(query);
+            }
         }
     }
     
