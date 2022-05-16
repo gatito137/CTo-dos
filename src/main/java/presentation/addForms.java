@@ -35,7 +35,7 @@ public class addForms extends JFrame {
     
     private void FillList(){
         c.query.delete(0, c.query.length());
-        c.query.append("select Name from Forms;");
+        c.query.append("select Name from Forms order by Name;");
         execute.getList(txtListForms, c.query.toString());
     }
     

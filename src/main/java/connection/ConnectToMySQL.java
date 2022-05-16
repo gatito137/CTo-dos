@@ -18,7 +18,7 @@ public class ConnectToMySQL {
         return cache.getConnection();
     }
     
-    public Connection getConnection(){
+    protected Connection getConnection(){
         if(testConnection() == null){
             try{
                 String url = "jdbc:mysql://remotemysql.com:3306/0gr50OWTph";

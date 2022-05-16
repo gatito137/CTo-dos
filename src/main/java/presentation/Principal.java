@@ -33,7 +33,7 @@ public class Principal extends JFrame {
         FillTable(tabMain, c.query.toString());
         
         c.query.delete(0, c.query.length());
-        c.query.append("Select Name from Forms;");
+        c.query.append("Select Name from Forms order by Name;");
         FillTable(tabForms, c.query.toString());
     }
     
@@ -233,8 +233,7 @@ public class Principal extends JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
